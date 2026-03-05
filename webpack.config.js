@@ -9,6 +9,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    host: '0.0.0.0',
     port: 3000,
     hot: true,
     headers: {
@@ -16,7 +17,7 @@ module.exports = {
     },
   },
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: 'http://192.168.2.153:3000/',
     clean: true,
   },
   resolve: {
@@ -49,8 +50,6 @@ module.exports = {
         './Header': './src/components/Header',
         './utils': './src/utils',
         './styles': './src/styles/common.css',
-        './react': 'react',
-        './react-dom': 'react-dom',
       },
       shared: {
         react: {
