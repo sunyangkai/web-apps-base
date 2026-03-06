@@ -1,10 +1,15 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
+
+// 环境配置
+const ENV = process.env.NODE_ENV || 'development';
+const envPath = path.resolve(__dirname, `.env.${ENV}`);
 
 module.exports = {
   entry: './src/index.js',
-  mode: 'development',
+  mode: ENV === 'production' ? 'production' : 'development',
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
@@ -17,7 +22,7 @@ module.exports = {
     },
   },
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: process.env.PUBLIC_PATH || 'http://localhost:3000/',
     clean: true,
   },
   resolve: {
@@ -42,6 +47,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv({
+      path: envPath,
+      safe: false,
+      systemvars: true,
+    }),
     new ModuleFederationPlugin({
       name: 'base',
       filename: 'remoteEntry.js',
