@@ -1,4 +1,5 @@
 // Shared utility functions
+export { default as Tracker, autoTrackClicks, autoTrackErrors } from '../sdk/tracker';
 
 export const formatDate = (date) => {
   return new Date(date).toLocaleDateString('zh-CN', {

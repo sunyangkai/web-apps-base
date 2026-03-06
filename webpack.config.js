@@ -59,6 +59,7 @@ module.exports = {
         './Button': './src/components/Button',
         './Header': './src/components/Header',
         './utils': './src/utils',
+        './Tracker': './src/sdk/tracker',
         './styles': './src/styles/common.css',
       },
       shared: {
