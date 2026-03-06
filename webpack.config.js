@@ -17,7 +17,7 @@ module.exports = {
     },
   },
   output: {
-    publicPath: 'http://192.168.2.153:3000/',
+    publicPath: 'http://localhost:3000/',
     clean: true,
   },
   resolve: {
